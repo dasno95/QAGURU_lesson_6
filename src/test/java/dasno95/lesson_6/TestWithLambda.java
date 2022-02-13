@@ -1,7 +1,5 @@
 package dasno95.lesson_6;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -12,21 +10,16 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.linkText;
 import static org.openqa.selenium.By.partialLinkText;
 
-public class TestWithLambda {
+public class TestWithLambda extends BaseAnnotation {
 
     private static final String REPOSITORY = "eroshenkoam/allure-example";
     private static final int NUMBER = 74;
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-    }
 
     @Test
     public void testIssueSearchWithLambda () {
 
         step("Open home page", () -> {
-            open("https://github.com/");
+            open("https://github.com");
         });
 
         step("Search for repository " + REPOSITORY, () -> {
